@@ -1,0 +1,53 @@
+import java.util.*;
+
+class Oops
+{
+    double DA,HRA,PF,IT,basic_salary,inhand_salary; 
+    int emp_no;
+    String emp_name,designation;
+    
+    Oops(int emp_no,String emp_name,String designation ,double basic_salary)
+    {
+        this.emp_no=emp_no;
+        this.emp_name=emp_name;
+        this.designation=designation;
+        this.basic_salary=basic_salary;
+    }
+    
+    void cal()
+    {
+        DA = basic_salary * 0.07;
+        HRA = basic_salary * 0.08;
+        PF = basic_salary * 0.17;
+        IT = basic_salary * 0.18;
+        inhand_salary = basic_salary + DA + HRA - (PF+IT);
+    }
+    void display()
+    {
+        System.out.println("employee no is : "+emp_no+"  \n employee name is : "+emp_name+" \n  Designation : "+designation);
+        System.out.println(" \n da is "+DA+" \n hra is "+HRA+" \n PF is "+PF+" \n IT is "+IT);
+        System.out.println(" inhand salary is : "+inhand_salary);
+    }
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	        Scanner sc=new Scanner(System.in);
+	        System.out.println("enter employee no");
+	        int emp_no=sc.nextInt();
+	        System.out.println("enter employee name");
+	        String emp_name=sc.next();
+	        System.out.println("enter employee Designation");
+	        String designation=sc.next();
+	        System.out.println("enter employee Basic salary");
+	        double basic_salary=sc.nextDouble();
+	        
+	        Oops o = new Oops(emp_no,emp_name,designation,basic_salary);
+	        o.cal();
+	        o.display();
+	        sc.close();
+	}
+}
+
